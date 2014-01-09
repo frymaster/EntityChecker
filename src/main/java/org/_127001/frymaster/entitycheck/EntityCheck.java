@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -49,8 +50,8 @@ public class EntityCheck extends JavaPlugin implements Listener {
             }
             List<EntityCounter<EntityType,Integer>> ecl = new ArrayList<EntityCounter<EntityType,Integer>>(allEntities.values());
             Collections.sort(ecl, new EntityCounter<EntityType,Integer>(null,null,null));
-            getLogger().info(ecl.get(0).toString());
-
+            EntityCounter<EntityType,Integer> ec = ecl.get(ecl.size()-1);
+            getLogger().log(Level.INFO, "{0}\n{1} {2} {3}", new Object[]{ec.toString(), ec.getWorld().toString(), ec.getX(), ec.getY()});
             return true;
         }
         return false;
