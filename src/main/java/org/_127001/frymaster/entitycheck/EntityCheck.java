@@ -36,7 +36,10 @@ public class EntityCheck extends JavaPlugin implements Listener {
                     int y = c.getZ();
                     String key = EntityCounter.key(w,x,y);
                     EntityCounter<EntityType,Integer> ec = allEntities.get(key);
-                    if (ec == null) ec=new EntityCounter<EntityType,Integer>(w,x,y);
+                    if (ec == null) {
+                        ec=new EntityCounter<EntityType,Integer>(w,x,y);
+                        allEntities.put(key,ec);
+                    }
                     EntityType et = e.getType();
                     Integer count = (Integer) ec.get(et);
                     if (count == null) count = 0;
