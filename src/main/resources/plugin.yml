@@ -1,0 +1,12 @@
+author: Philip Cass
+database: false
+generator: http://dinnerbone.com/minecraft/tools/pluginator/
+main: org._127001.frymaster.entitycheck.EntityCheck
+name: EntityCheck
+startup: postworld
+version: '1.0'
+commands:
+    lagcheck:
+        description: Show a summary of the chunks with the most entities in them
+        usage: /lagcheck
+        permission: entitycheck.lagcheck
